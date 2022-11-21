@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+    <div class="container py-5">
+        <div class="basic-info">
+            <div class="photo" style="float: right;">
+                <img
+                        style="vertical-align: middle;width: 240px;height: 300px;border-radius: 20%;"
+                        src="{% static 'img/photo.png' %}"
+                        alt="MyFacePlaceholder">
+            </div>
+            <h2>
+                Александров Алексей, <font color="#696969">Junior Python Developer</font>
+            </h2>
+
+            <div class="set">
+                <p>
+                    Дата рождения: 21.05.2001 г.
+                    <br>
+                    Email: <a href="mailto:me@alexandrovan.ru">me@alexandrovan.ru</a>
+                    <br>
+                    GitHub: <a href="https://github.com/aaaaaaaalesha"
+                               rel="nofollow">https://github.com/aaaaaaaalesha</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="section section-education">
+            <hr>
+            <h2 class="title">Образование:</h2>
+            <div class="set">
+                <div class="item">
+                    <h4>
+                        <span class="course l">МГТУ им. Н.Э. Баумана, </span>
+                        <span class="date r">
+                            <font color="#696969">Сентябрь 2019 &ndash; н.в.</font>
+                        </span>
+                    </h4>
+                    <div class="clear"></div>
+                    <span class="school">«Информатика, искусственный интеллект и системы управления» (ИУ)</span>
+                    <div class="info">
+                        <i>Специалитет, Компьютерная безопасность (очно, бюджет), 4-й курс. Средний балл: 4.8
+                        </i>
+                    </div>
+                    <span class="clear"> </span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section section-work">
+            <hr>
+            <h2 class="title">Опыт работы:</h2>
+            <div class="set">
+                <div class="item">
+                    <h4><span class="company">ООО «Коском», </span>
+                        <span>
+                            <font color="#696969">Июль 2022 &ndash; н.в.</font>
+                        </span>
+                    </h4>
+                    <div class="clear"></div>
+                    <span class="job_title">Программист отдела информационных технологий.</span>
+                    <div class="info">
+                        <ul>
+                            <li>Работа над проектом расчёта зон наводнений на Python.</li>
+                            <li>Переработка архитектуры приложения с использованием оркестратора (perfect).</li>
+                            <li>Написание RESTful сервиса использованием веб-фреймворка Sanic.</li>
+                            <li>Подготовка описания архитектуры, логики, openAPI для дальнейшей поддержки проекта.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section section-projects">
+            <hr>
+            <h2 class="title">Проекты:</h2>
+            <div class="set">
+                <div class="item">
+                    <span class="info">
+                        <ul>
+                            <li><b>Веб-сервис для планировки пользовательских задач</b>,
+                                <font color="#696969">Сентябрь &ndash; Декабрь 2020</font>
+                                <br> <i>Go, PostgreSQL, Docker, Travis CI</i>
+                                <ul>
+                                    <li>Сервис реализует создание пользовательских задач и списков дел.</li>
+                                    <li>Пользователь получает необходимые напоминания и полезную информацию для удобного
+                                        планирования распорядка дня.</li>
+                                </ul>
+                                <b>Ссылка:</b> <a href="https://github.com/bmstu-iu8-g4-2020-project/todo_web_service">
+                                    github.com/bmstu-iu8-g4-2020-project/todo_web_service
+                                </a>
+                            </li>
+
+                            <li><b>Бот для создания очередей в групповых чатах мессенджера Telegram</b>,
+                                <font color="#696969">Декабрь 2021</font>
+                                <br> <i>Python, SQLite, Aiogram</i>
+                                <ul>
+                                    <li>Бот предоставляет интерфейс для планирования очередей в групповых Telegram-чатах
+                                        для определения порядка записи на мероприятия.</li>
+                                </ul>
+                                <b>Ссылка:</b> <a href="https://github.com/aaaaaaaalesha/iu8_queue_bot">
+                                    github.com/aaaaaaaalesha/iu8_queue_bot
+                                </a>
+                            </li>
+
+                             <li><b>Утилита для маркировки документов на основе нечёткого хеширования</b>,
+                                <font color="#696969">Июль &ndash; Август 2022</font>
+                                <br> <i>Python, BeautifulSoup4</i>
+                                <ul>
+                                    <li>Утилита обеспечивает генерацию и внедрение идентификаторов в электронные документы.</li>
+                                    <li>Маркированные файлы можно сравнивать, используя их метаданные и нечёткий хеш содержимого.</li>
+                                </ul>
+                                <b>Ссылка:</b> <a href="https://github.com/aaaaaaaalesha/fuzzy_docmarking_tool">
+                                    github.com/aaaaaaaalesha/fuzzy_docmarking_tool
+                                </a>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section section-practice-courses">
+            <hr>
+            <h2 class="title">Практика и курсы:</h2>
+            <div class="set">
+                <div class="item">
+                    <span class="info">
+                        <ul>
+                            <li><b>Учебно-технологическая практика в отделе информационной безопасности</b>,
+                                <font color="#696969">АО «ЦНИИАГ» &mdash; Июль 2021</font>
+                                <br>
+                                Построение сетевых стендов и работа со сканерами уязвимостей. Отработка network pivoting.
+                            </li>
+
+                            <li><b>Производственная практика в отделе информационной безопасности</b>,
+                                <font color="#696969">АО «ЦНИИАГ» &mdash; Июль 2022</font>
+                                <br>
+                                Разработка ПО для формирования отслеживаемых идентификаторов электронных документов.
+                            </li>
+
+                            <li><b>Курс «Python-разработчик» (440 ч.)</b>,
+                                <font color="#696969">Яндекс.Практикум &mdash; Сентябрь 2022 &ndash; н.в. </font>
+                                <br>
+                                Backend-разработка на основе Python веб-фреймворка Django и сопутствующих технологий.
+                            </li>
+
+                             <li><b>Прохождение курсов на образовательной платформе Coursera:</b>
+                                 <ul>
+                                     <li>
+                                         <a href="https://coursera.org/share/bed26b037dc360e8f71aad18e3fa45b2">
+                                             Сертификат:
+                                         </a> «Основы разработки на С++: жёлтый пояс»</li>
+                                     <li>
+                                         <a href="https://coursera.org/share/af512618c57dd5864a15cf7a2ed7502a">
+                                             Сертификат:
+                                         </a> «Разработка веб-сервисов на Go»</li>
+                                     <li>
+                                         <a href="https://coursera.org/share/ec87dee33807bf14740122c850ab5f40">
+                                             Сертификат:
+                                         </a> «Погружение в Python»</li>
+                                     <li>
+                                         <a href="https://coursera.org/share/5456ced40e9a80cf143bf495eafa4372">
+                                             Сертификат:
+                                         </a> «ООП и паттерны проектирования в Python»</li>
+                                 </ul>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section section-qualifications">
+            <hr>
+            <h2 class="title">Технические навыки:</h2>
+            <div class="set">
+                <div class="item">
+                    <span class="info">
+                        <ul>
+                            <li><b>Языки программирования:</b> Python, C/C++, Go, SQL</li>
+                            <li><b>Средства разработки:</b> Git, CI/CD, Jupyter Notebook, PostgreSQL, SQLite, Postman</li>
+                            <li><b>Библиотеки:</b> Django, BeautifulSoup4, NumPy, Pandas, Matplotlib, Plotly, AsyncIO</li>
+                            <li><b>ОС:</b> Linux, Windows (+ WSL)</li>
+                            <li><b>Другое:</b> Slack, Mattermost, LaTeX, Jira, Trello</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section section-interests">
+            <hr>
+            <h2 class="title">Дополнительная информация:</h2>
+            <div class="set">
+                <div class="item">
+                    <ul>
+                        <li>
+                            Лаборант факультативного курса по C++ на кафедре ИУ8 (МГТУ им. Н.Э. Баумана).
+                            <ul>
+                                <li>Проведение лекций по C++ от типов данных до полноценного понимания ООП.</li>
+                                <li>Проверка лабораторных работ студентов, а также ревью кода на соответствие
+                                    codestyle.
+                                </li>
+                                <li>Число участников курса: +200 человек.</li>
+                            </ul>
+                        </li>
+                        <li>Студент ВУЦ по программе подготовки офицеров запаса (МГТУ им. Н. Э. Баумана).</li>
+                        <li>Языки: <i>русский</i> &ndash; родной; <i>английский</i> &ndash; Intermediate</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+{% endblock %}

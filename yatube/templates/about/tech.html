@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+    <div class="container py-5">
+        <h1> Backend Community Homework: Yatube Project </h1>
+        <h2
+                id="-telegram-https-img-shields-io-badge-aaaaaaaalesha-2ca5e0-style-for-the-badge-logo-telegram-logocolor-white-https-t-me-aaaaaaaalesha-python-https-img-shields-io-badge-python-3670a0-style-for-the-badge-logo-python-logocolor-ffdd54-django-https-img-shields-io-badge-django-23092e20-svg-style-for-the-badge-logo-django-logocolor-white-">
+            <a href="https://t.me/aaaaaaaalesha">
+                <img src="https://img.shields.io/badge/aaaaaaaalesha-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white"
+                     alt="Telegram"></a>
+            <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&amp;logo=python&amp;logoColor=ffdd54"
+                 alt="Python">
+            <img src="https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&amp;logo=django&amp;logoColor=white"
+                 alt="Django">
+        </h2>
+        <h2 id="-">Что это?</h2>
+        <p>Платформа для публикации постов и сообществ.</p>
+        <h2 id="-dev-">Запуск проекта в dev-режиме</h2>
+        <ul>
+            <li>Установите и активируйте виртуальное окружение</li>
+        </ul>
+        <pre><code class="lang-shell">py -3.7 -m venv venv
+venv<span class="hljs-symbol">\S</span>cripts<span class="hljs-symbol">\a</span>ctivate
+</code></pre>
+        <ul>
+            <li>Установите зависимости из файла requirements.txt</li>
+        </ul>
+        <pre><code class="lang-shell">pip <span class="hljs-keyword">install</span> -r requirements.txt
+</code></pre>
+        <ul>
+            <li>Для старта, выполните команду:</li>
+        </ul>
+        <pre><code class="lang-shell">python3 yatube\manage<span class="hljs-selector-class">.py</span> runserver
+</code></pre>
+
+    </div>
+
+{% endblock %}
