@@ -2,7 +2,7 @@
 
 [comment]: <> (Logo)
 <p align="center">
-  <img alt="logo" src="yatube/static/img/logo.png">
+  <img alt="logo" src="assets/logo.png">
 </p>
 
 [comment]: <> (Techs&Badges)

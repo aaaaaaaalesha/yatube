@@ -24,7 +24,6 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, 'posts/index.html', context)
 
 
-@cache_page(CACHE_TIMEOUT, key_prefix='group_page')
 def group_posts(request: HttpRequest, slug: str) -> HttpResponse:
     """
     View for group pages. Posts related to a specific group are here.
@@ -54,9 +53,7 @@ def profile(request: HttpRequest, username: str) -> HttpResponse:
         ).exists()
 
     paginator = Paginator(posts, POSTS_PER_PAGE)
-    page_obj = paginator.get_page(
-        request.GET.get('page'),
-    )
+    page_obj = paginator.get_page(request.GET.get('page'), )
     context = {
         'author': user,
         'full_name': f'{user.first_name} {user.last_name}',
@@ -149,18 +146,17 @@ def add_comment(request: HttpRequest, post_id: int) -> HttpResponse:
 def follow_index(request: HttpRequest) -> HttpResponse:
     posts = Post.objects.filter(author__following__user=request.user)
     paginator = Paginator(posts, 10)
-
-    page_obj = paginator.get_page(
-        request.GET.get('page')
-    )
-
+    page_obj = paginator.get_page(request.GET.get('page'))
     return render(request, 'posts/follow.html', {'page_obj': page_obj})
 
 
 @login_required
 def profile_follow(request, username: str) -> HttpResponse:
     author = get_object_or_404(User, username=username)
-    if request.user != author:
+    is_followed = Follow.objects.filter(
+        user=request.user, author=author
+    ).exists()
+    if request.user != author and not is_followed:
         Follow.objects.create(user=request.user, author=author)
     return redirect('posts:profile', username=username)
 
