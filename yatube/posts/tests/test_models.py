@@ -95,13 +95,7 @@ class PostModelTest(TestCase):
                 'description': 'Укажите описание группы',
             }),
             (PostModelTest.comment, {
-                'post': 'Комментарий',
-                'author': 'Автор',
-                'text': 'Текст комментария',
-            }),
-            (PostModelTest.follow, {
-                'user': 'Подписчик',
-                'author': 'Автор',
+                'text': 'Напишите комментарий',
             }),
         ]
 

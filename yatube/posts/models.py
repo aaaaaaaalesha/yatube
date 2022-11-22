@@ -73,7 +73,6 @@ class Comment(CreatedModel):
         on_delete=models.CASCADE,
         verbose_name='Комментарий',
         related_name='comments',
-        help_text='Оставьте комментарий здесь',
     )
     author = models.ForeignKey(
         User,
