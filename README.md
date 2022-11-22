@@ -9,7 +9,7 @@
 [![Telegram](https://img.shields.io/badge/aaaaaaaalesha-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/aaaaaaaalesha)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
-[![CI](https://github.com/aaaaaaaalesha/hw02_community/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/aaaaaaaalesha/hw02_community/actions/workflows/python-app.yml)
+[![CI](https://github.com/aaaaaaaalesha/hw02_community/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/aaaaaaaalesha/hw05_final/actions/workflows/python-app.yml)
 ---
 
 ## Что это?
