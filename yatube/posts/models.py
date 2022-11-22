@@ -104,3 +104,11 @@ class Follow(models.Model):
         verbose_name='Автор',
         related_name='following',
     )
+
+    class Meta:
+        unique_together = (
+            'user',
+            'author',
+        )
+        verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'

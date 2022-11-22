@@ -17,9 +17,7 @@ def index(request: HttpRequest) -> HttpResponse:
     """
     posts = Post.objects.all()
     paginator = Paginator(posts, POSTS_PER_PAGE)
-    page_obj = paginator.get_page(
-        request.GET.get('page')
-    )
+    page_obj = paginator.get_page(request.GET.get('page'))
     context = {
         'page_obj': page_obj,
     }
@@ -34,9 +32,7 @@ def group_posts(request: HttpRequest, slug: str) -> HttpResponse:
     group = get_object_or_404(Group, slug=slug)
     posts = Post.objects.filter(group=group)
     paginator = Paginator(posts, POSTS_PER_PAGE)
-    page_obj = paginator.get_page(
-        request.GET.get('page')
-    )
+    page_obj = paginator.get_page(request.GET.get('page'))
     context = {
         'title': f'Записи сообщества {group.title}',
         'group': group,
