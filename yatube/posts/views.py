@@ -94,7 +94,6 @@ def post_create(request: HttpRequest) -> HttpResponse:
 
     post_instance = post_form.save(commit=False)
     post_instance.author = request.user
-    post_instance.author = request.user
     post_instance.save()
 
     return redirect('posts:profile', request.user.username)
