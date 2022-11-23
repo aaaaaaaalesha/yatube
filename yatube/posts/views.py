@@ -8,6 +8,7 @@ from .models import Post, Group, User, Follow, POSTS_PER_PAGE
 from .forms import PostForm, CommentForm
 
 CACHE_TIMEOUT = 20 * 60
+PRETEXT_LENGTH = 30
 
 
 @cache_page(CACHE_TIMEOUT, key_prefix='index_page')
@@ -41,26 +42,22 @@ def group_posts(request: HttpRequest, slug: str) -> HttpResponse:
 
 
 def profile(request: HttpRequest, username: str) -> HttpResponse:
-    user = get_object_or_404(User, username=username)
-    posts = Post.objects.filter(author=user)
-
-    show_follow, following = False, False
-    if (request.user == user) or (not request.user.is_authenticated):
-        show_follow = True
-    else:
-        following = Follow.objects.filter(
-            user__follower__user=request.user
-        ).exists()
-
+    author = get_object_or_404(User, username=username)
+    posts = Post.objects.filter(author=author)
+    is_follow_visible = (request.user.is_authenticated
+                         and request.user != author)
+    following = (is_follow_visible
+                 and Follow.objects.filter(user=request.user,
+                                           author=author).exists())
     paginator = Paginator(posts, POSTS_PER_PAGE)
     page_obj = paginator.get_page(request.GET.get('page'), )
     context = {
-        'author': user,
-        'full_name': f'{user.first_name} {user.last_name}',
+        'author': author,
+        'full_name': f'{author.first_name} {author.last_name}',
         'posts_count': posts.count(),
         'page_obj': page_obj,
-        'show_follow': show_follow,
         'following': following,
+        'is_follow_visible': is_follow_visible,
     }
     return render(request, 'posts/profile.html', context)
 
@@ -70,9 +67,8 @@ def post_detail(request: HttpRequest, post_id: int) -> HttpResponse:
     posts_count = Post.objects.filter(
         author=post.author
     ).count()
-    pretext = post.text if len(post.text) <= 30 else post.text[:30]
     context = {
-        'pretext': pretext,
+        'pretext': post.text[:PRETEXT_LENGTH],
         'post': post,
         'posts_count': posts_count,
         'form': CommentForm(request.POST or None),
@@ -96,9 +92,10 @@ def post_create(request: HttpRequest) -> HttpResponse:
     if not post_form.is_valid():
         return render(request, 'posts/create_post.html', context)
 
-    model_instance = post_form.save(commit=False)
-    model_instance.author = request.user
-    model_instance.save()
+    post_instance = post_form.save(commit=False)
+    post_instance.author = request.user
+    post_instance.author = request.user
+    post_instance.save()
 
     return redirect('posts:profile', request.user.username)
 
@@ -123,9 +120,7 @@ def post_edit(request: HttpRequest, post_id: int) -> HttpResponse:
     if not form.is_valid():
         return render(request, 'posts/create_post.html', context)
 
-    form = PostForm(request.POST, instance=post)
     form.save()
-
     return redirect('posts:post_detail', post_id)
 
 
@@ -145,7 +140,7 @@ def add_comment(request: HttpRequest, post_id: int) -> HttpResponse:
 @login_required
 def follow_index(request: HttpRequest) -> HttpResponse:
     posts = Post.objects.filter(author__following__user=request.user)
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, POSTS_PER_PAGE)
     page_obj = paginator.get_page(request.GET.get('page'))
     return render(request, 'posts/follow.html', {'page_obj': page_obj})
 

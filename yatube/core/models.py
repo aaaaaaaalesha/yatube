@@ -6,7 +6,6 @@ class CreatedModel(models.Model):
     pub_date = models.DateTimeField(
         'Дата создания',
         auto_now_add=True,
-        db_index=True
     )
 
     class Meta:

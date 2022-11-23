@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 from core.models import CreatedModel
+from django.db.models import UniqueConstraint
 
 POSTS_PER_PAGE = 10
 
@@ -107,3 +108,10 @@ class Follow(models.Model):
     class Meta:
         verbose_name = 'Подписка'
         verbose_name_plural = 'Подписки'
+
+        constraints = (
+            UniqueConstraint(
+                fields=['user', 'author'],
+                name='unique_following'
+            ),
+        )
